@@ -1,0 +1,131 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Contact the Author</title>
+	<style .box="" {="" width:="" 150px;="" border:="" 1px="" solid="" #9325bc;="" padding:="" 10px;="" }="" .box:hover="" 0="" 10px="" #ccc;="" -webkit-box-shadow:="" box-shadow:="" }<="" style="">
+	</style>
+	<script type="text/javascript">
+	function verifyData(fName,lName,emailAdd)
+		{	
+			var dataCheck=true
+			var dataCheck1=true
+			var dataCheck2=true
+			var dataCheck3=true
+			
+			// Verifying data
+			if(fName.length<2 || lName.length<2 || emailAdd.length==0)
+				{alert("Missing Data! \nPlease make sure the following have values: \n   First Name\n   Last Name\n   Email Address!")
+				dataCheck1=false}
+				
+			// Validating email Address 1
+			for(i=0;i<emailAdd.length;i++)
+				{// Verifying an asperand in the email address
+				if(emailAdd.slice(i,i+1)=="@")
+					{dataCheck2=true;i=emailAdd.length+1}
+				else
+					{dataCheck2=false}
+				}
+			// Validating email address 2
+			if(emailAdd.slice(-3,emailAdd.length+1)=="com" || emailAdd.slice(-3,emailAdd.length+1)=="net" || emailAdd.slice(-3,emailAdd.length+1)=="gov")
+				{
+				dataCheck3=true
+				}
+			else
+				{
+				dataCheck3=false
+				}
+			// Error message for bad email
+			if(dataCheck1==false || dataCheck2==false || dataCheck3==false)
+				{alert("Bad email address.")
+				dataCheck=false
+				}	
+			return dataCheck
+		}
+	
+
+	function submitclick()
+			{
+			var x1 = document.getElementsByName("firstname")[0].value;
+			var x2 = document.getElementsByName("lastname")[0].value;
+			var x3 = document.getElementsByName("email")[0].value;
+			var x4 = document.getElementsByName("stAddress")[0].value;
+			var x5 = document.getElementsByName("city")[0].value;
+			var x6 = document.getElementsByName("zip")[0].value;
+			var x7 = document.getElementsByName("state")[0].value;
+			var x8 = document.getElementsByName("country")[0].value;
+			var x9 = document.getElementsByName("phone")[0].value;
+			var x10 = document.getElementsByName("comment")[0].value;
+			
+			var dataValidate=verifyData(x1,x2,x3)
+			if(dataValidate==false)
+				{return}	
+				
+			// Listing Data
+			for(i=1;i<11;i++)
+				{
+				switch(i){
+					case 1: thelabel="First Name: ";x=x1;break
+					case 2: thelabel="Last Name: ";x=x2;break
+					case 3: thelabel="Email Address: ";x=x3;break
+					case 4: thelabel="Street Address: ";x=x4;break
+					case 5: thelabel="City: ";x=x5;break
+					case 6: thelabel="Zip Code: ";x=x6;break
+					case 7: thelabel="State: ";x=x7;break
+					case 8: thelabel="Country: ";x=x8;break
+					case 9: thelabel="Phone: ";x=x9;break
+					case 10: thelabel="Comments: ";x=x10;break
+					}
+				document.write(thelabel+x+"    ")
+				}
+				// Listing variables
+				document.write(dataValidate+"    ")
+				document.write(x.length+"    ")
+				document.write(x.slice(-3,x .length)+"    ")
+			}
+	</script>
+</head>
+<body
+	background="http://www.thecityofkothos.com/homepageImages/hpBackGround.gif">
+	<div align="center">
+		<div><font color="#330000" face="Arial Rounded MT"><big><b><font
+			size="+2"><big><font size="+3"><big>The City of Kothos</big></font></big></font></b></big></font><br>
+		</div>
+		<div >
+		<table border="0" cellpadding="2" cellspacing="2" align="center">
+			<tbody>
+				<div><font color="#330000" face="Arial Rounded MT" ><big><b>
+					<font size="+1"><big>Tell me a little about yourself.</big></font></b></big></font><br><br><br>
+				</div>
+				<tr>
+					<td>
+						<form action="helloItsMe.php" method="get"></form>
+							<font color="#330000" face="Arial Rounded MT">
+							<font color = "#FF0000">*</font>First name:<br><input name="firstname" type="text" size="30"> <br>
+							<font color = "#FF0000">*</font>Last name:<br><input name="lastname" type="text" size="30"> <br>
+							<font color = "#FF0000">*</font>Email Address:<br><input name="email" type="text" size="30"> <br>
+							Street Address:<br><input name="stAddress" type="text" size="30"> <br>
+							City:<br><input name="city" type="text" size="30"><br> 
+							State: <input name="state" type="text" size="1"> Zip:  <input name="zip" type="text" size="8"> <br>
+							Country:<br><input name="country" type="text" size="30"> <br>
+							Phone Number:<br><input name="phone" type="text" size="30"> <br>
+							Something to say:<br><input name="comment" type="textbox" size="30"><br> 
+							<br>
+							<input value="Submit" type="submit" onclick=submitclick()><br><br><br>
+					</td>		
+				</tr>
+				<tr>
+					<td valign="top" align="center"><font color="#660000"
+					face="Arial Rounded MT">Site Copyright � 2015 All Rights
+					Reserved<br>
+					Created by Otto Von Bailey<br>
+					Site design by Otto Von Bailey<br>
+					Art and stories Copyright by Otto Von Bailey</font><br>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</body>
+</html>
+
